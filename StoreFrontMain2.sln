@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1209
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storefront.UI.MVC", "Storefront.UI.MVC\Storefront.UI.MVC.csproj", "{400A7F6E-5A41-4BCF-831B-518A7D01B7EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storefront.DATA.EF", "Storefront.DATA.EF\Storefront.DATA.EF.csproj", "{82547D30-7792-44C2-B607-D14185ACCEEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{400A7F6E-5A41-4BCF-831B-518A7D01B7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{400A7F6E-5A41-4BCF-831B-518A7D01B7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{400A7F6E-5A41-4BCF-831B-518A7D01B7EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82547D30-7792-44C2-B607-D14185ACCEEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82547D30-7792-44C2-B607-D14185ACCEEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82547D30-7792-44C2-B607-D14185ACCEEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82547D30-7792-44C2-B607-D14185ACCEEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

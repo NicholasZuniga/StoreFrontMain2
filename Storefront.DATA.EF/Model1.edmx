@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StoreFrontMainModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Creator">
+          <Key>
+            <PropertyRef Name="CreatorID" />
+          </Key>
+          <Property Name="CreatorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VidGameID" Type="int" Nullable="false" />
+          <Property Name="CreatorInfoID" Type="int" Nullable="false" />
+          <Property Name="CreatorOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="CreatorInfo">
+          <Key>
+            <PropertyRef Name="CreatorInfoID" />
+          </Key>
+          <Property Name="CreatorInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepCountry" Type="varchar" MaxLength="50" />
+          <Property Name="DepState" Type="varchar" MaxLength="50" />
+          <Property Name="DepCity" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'StoreFrontMain.dbo.Empolyees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Empolyees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="StillEmployed" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="EmpLastName" Type="varchar" MaxLength="50" />
+          <Property Name="DepartmentID" Type="int" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="Salary" Type="money" />
+          <Property Name="StillEmployed" Type="bit" Nullable="false" />
+          <Property Name="EndDate" Type="date" />
+        </EntityType>
+        <EntityType Name="ESRBRating">
+          <Key>
+            <PropertyRef Name="ESRBRatingID" />
+          </Key>
+          <Property Name="ESRBRatingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rating" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ESRBDesc" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Genre" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PublisherName" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VideoGames">
+          <Key>
+            <PropertyRef Name="VidGameID" />
+          </Key>
+          <Property Name="VidGameID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Upc" Type="varchar" MaxLength="15" />
+          <Property Name="VideoGameTitle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="ESRBRatingID" Type="int" Nullable="false" />
+          <Property Name="GenreID" Type="int" Nullable="false" />
+          <Property Name="PublisherID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" />
+          <Property Name="PublishDate" Type="date" />
+          <Property Name="CreatorID" Type="int" />
+          <Property Name="Image" Type="image" />
+          <Property Name="InStock" Type="int" />
+          <Property Name="UnitsSold" Type="int" />
+          <Property Name="OnBackOrder" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Creator_CreatorInfo">
+          <End Role="CreatorInfo" Type="Self.CreatorInfo" Multiplicity="1" />
+          <End Role="Creator" Type="Self.Creator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreatorInfo">
+              <PropertyRef Name="CreatorInfoID" />
+            </Principal>
+            <Dependent Role="Creator">
+              <PropertyRef Name="CreatorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Creator_VideoGames">
+          <End Role="VideoGames" Type="Self.VideoGames" Multiplicity="1" />
+          <End Role="Creator" Type="Self.Creator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGames">
+              <PropertyRef Name="VidGameID" />
+            </Principal>
+            <Dependent Role="Creator">
+              <PropertyRef Name="VidGameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empolyees_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Empolyees" Type="Self.Empolyees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Empolyees">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoGames_ESRBRating">
+          <End Role="ESRBRating" Type="Self.ESRBRating" Multiplicity="1" />
+          <End Role="VideoGames" Type="Self.VideoGames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESRBRating">
+              <PropertyRef Name="ESRBRatingID" />
+            </Principal>
+            <Dependent Role="VideoGames">
+              <PropertyRef Name="ESRBRatingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoGames_Genre">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="VideoGames" Type="Self.VideoGames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="GenreID" />
+            </Principal>
+            <Dependent Role="VideoGames">
+              <PropertyRef Name="GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoGames_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+          <End Role="VideoGames" Type="Self.VideoGames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="VideoGames">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StoreFrontMainModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Creator" EntityType="Self.Creator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CreatorInfo" EntityType="Self.CreatorInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESRBRating" EntityType="Self.ESRBRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoGames" EntityType="Self.VideoGames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empolyees" EntityType="Self.Empolyees" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Empolyees].[EmployeeID] AS [EmployeeID], 
+    [Empolyees].[EmpFirstName] AS [EmpFirstName], 
+    [Empolyees].[EmpLastName] AS [EmpLastName], 
+    [Empolyees].[DepartmentID] AS [DepartmentID], 
+    [Empolyees].[JobTitle] AS [JobTitle], 
+    [Empolyees].[StartDate] AS [StartDate], 
+    [Empolyees].[Salary] AS [Salary], 
+    [Empolyees].[StillEmployed] AS [StillEmployed], 
+    [Empolyees].[EndDate] AS [EndDate]
+    FROM [dbo].[Empolyees] AS [Empolyees]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Creator_CreatorInfo" Association="Self.FK_Creator_CreatorInfo">
+            <End Role="CreatorInfo" EntitySet="CreatorInfo" />
+            <End Role="Creator" EntitySet="Creator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Creator_VideoGames" Association="Self.FK_Creator_VideoGames">
+            <End Role="VideoGames" EntitySet="VideoGames" />
+            <End Role="Creator" EntitySet="Creator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empolyees_Department" Association="Self.FK_Empolyees_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Empolyees" EntitySet="Empolyees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoGames_ESRBRating" Association="Self.FK_VideoGames_ESRBRating">
+            <End Role="ESRBRating" EntitySet="ESRBRating" />
+            <End Role="VideoGames" EntitySet="VideoGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoGames_Genre" Association="Self.FK_VideoGames_Genre">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="VideoGames" EntitySet="VideoGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoGames_Publisher" Association="Self.FK_VideoGames_Publisher">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="VideoGames" EntitySet="VideoGames" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StoreFrontMainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Creator">
+          <Key>
+            <PropertyRef Name="CreatorID" />
+          </Key>
+          <Property Name="CreatorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VidGameID" Type="Int32" Nullable="false" />
+          <Property Name="CreatorInfoID" Type="Int32" Nullable="false" />
+          <Property Name="CreatorOrder" Type="Int32" />
+          <NavigationProperty Name="CreatorInfo" Relationship="Self.FK_Creator_CreatorInfo" FromRole="Creator" ToRole="CreatorInfo" />
+          <NavigationProperty Name="VideoGame" Relationship="Self.FK_Creator_VideoGames" FromRole="Creator" ToRole="VideoGames" />
+        </EntityType>
+        <EntityType Name="CreatorInfo">
+          <Key>
+            <PropertyRef Name="CreatorInfoID" />
+          </Key>
+          <Property Name="CreatorInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Creators" Relationship="Self.FK_Creator_CreatorInfo" FromRole="CreatorInfo" ToRole="Creator" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empolyees" Relationship="Self.FK_Empolyees_Department" FromRole="Department" ToRole="Empolyees" />
+        </EntityType>
+        <EntityType Name="ESRBRating">
+          <Key>
+            <PropertyRef Name="ESRBRatingID" />
+          </Key>
+          <Property Name="ESRBRatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ESRBDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="VideoGames" Relationship="Self.FK_VideoGames_ESRBRating" FromRole="ESRBRating" ToRole="VideoGames" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genre1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="VideoGames" Relationship="Self.FK_VideoGames_Genre" FromRole="Genre" ToRole="VideoGames" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="VideoGames" Relationship="Self.FK_VideoGames_Publisher" FromRole="Publisher" ToRole="VideoGames" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VideoGame">
+          <Key>
+            <PropertyRef Name="VidGameID" />
+          </Key>
+          <Property Name="VidGameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Upc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="VideoGameTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESRBRatingID" Type="Int32" Nullable="false" />
+          <Property Name="GenreID" Type="Int32" Nullable="false" />
+          <Property Name="PublisherID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PublishDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatorID" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="InStock" Type="Int32" />
+          <Property Name="UnitsSold" Type="Int32" />
+          <Property Name="OnBackOrder" Type="Boolean" />
+          <NavigationProperty Name="Creators" Relationship="Self.FK_Creator_VideoGames" FromRole="VideoGames" ToRole="Creator" />
+          <NavigationProperty Name="ESRBRating" Relationship="Self.FK_VideoGames_ESRBRating" FromRole="VideoGames" ToRole="ESRBRating" />
+          <NavigationProperty Name="Genre" Relationship="Self.FK_VideoGames_Genre" FromRole="VideoGames" ToRole="Genre" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK_VideoGames_Publisher" FromRole="VideoGames" ToRole="Publisher" />
+        </EntityType>
+        <EntityType Name="Empolyee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="StillEmployed" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentID" Type="Int32" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="StillEmployed" Type="Boolean" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Empolyees_Department" FromRole="Empolyees" ToRole="Department" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Creator_CreatorInfo">
+          <End Role="CreatorInfo" Type="Self.CreatorInfo" Multiplicity="1" />
+          <End Role="Creator" Type="Self.Creator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreatorInfo">
+              <PropertyRef Name="CreatorInfoID" />
+            </Principal>
+            <Dependent Role="Creator">
+              <PropertyRef Name="CreatorInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Creator_VideoGames">
+          <End Role="VideoGames" Type="Self.VideoGame" Multiplicity="1" />
+          <End Role="Creator" Type="Self.Creator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGames">
+              <PropertyRef Name="VidGameID" />
+            </Principal>
+            <Dependent Role="Creator">
+              <PropertyRef Name="VidGameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empolyees_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Empolyees" Type="Self.Empolyee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Empolyees">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoGames_ESRBRating">
+          <End Role="ESRBRating" Type="Self.ESRBRating" Multiplicity="1" />
+          <End Role="VideoGames" Type="Self.VideoGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESRBRating">
+              <PropertyRef Name="ESRBRatingID" />
+            </Principal>
+            <Dependent Role="VideoGames">
+              <PropertyRef Name="ESRBRatingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoGames_Genre">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="VideoGames" Type="Self.VideoGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="GenreID" />
+            </Principal>
+            <Dependent Role="VideoGames">
+              <PropertyRef Name="GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoGames_Publisher">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+          <End Role="VideoGames" Type="Self.VideoGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="VideoGames">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="StoreFrontMainEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Creators" EntityType="Self.Creator" />
+          <EntitySet Name="CreatorInfoes" EntityType="Self.CreatorInfo" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="ESRBRatings" EntityType="Self.ESRBRating" />
+          <EntitySet Name="Genres" EntityType="Self.Genre" />
+          <EntitySet Name="Publishers" EntityType="Self.Publisher" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="VideoGames" EntityType="Self.VideoGame" />
+          <EntitySet Name="Empolyees" EntityType="Self.Empolyee" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Creator_CreatorInfo" Association="Self.FK_Creator_CreatorInfo">
+            <End Role="CreatorInfo" EntitySet="CreatorInfoes" />
+            <End Role="Creator" EntitySet="Creators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Creator_VideoGames" Association="Self.FK_Creator_VideoGames">
+            <End Role="VideoGames" EntitySet="VideoGames" />
+            <End Role="Creator" EntitySet="Creators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empolyees_Department" Association="Self.FK_Empolyees_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Empolyees" EntitySet="Empolyees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoGames_ESRBRating" Association="Self.FK_VideoGames_ESRBRating">
+            <End Role="ESRBRating" EntitySet="ESRBRatings" />
+            <End Role="VideoGames" EntitySet="VideoGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoGames_Genre" Association="Self.FK_VideoGames_Genre">
+            <End Role="Genre" EntitySet="Genres" />
+            <End Role="VideoGames" EntitySet="VideoGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoGames_Publisher" Association="Self.FK_VideoGames_Publisher">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="VideoGames" EntitySet="VideoGames" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StoreFrontMainModelStoreContainer" CdmEntityContainer="StoreFrontMainEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Creators">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.Creator">
+              <MappingFragment StoreEntitySet="Creator">
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="VidGameID" ColumnName="VidGameID" />
+                <ScalarProperty Name="CreatorInfoID" ColumnName="CreatorInfoID" />
+                <ScalarProperty Name="CreatorOrder" ColumnName="CreatorOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreatorInfoes">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.CreatorInfo">
+              <MappingFragment StoreEntitySet="CreatorInfo">
+                <ScalarProperty Name="CreatorInfoID" ColumnName="CreatorInfoID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DepName" ColumnName="DepName" />
+                <ScalarProperty Name="DepCountry" ColumnName="DepCountry" />
+                <ScalarProperty Name="DepState" ColumnName="DepState" />
+                <ScalarProperty Name="DepCity" ColumnName="DepCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESRBRatings">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.ESRBRating">
+              <MappingFragment StoreEntitySet="ESRBRating">
+                <ScalarProperty Name="ESRBRatingID" ColumnName="ESRBRatingID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ESRBDesc" ColumnName="ESRBDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.Genre">
+              <MappingFragment StoreEntitySet="Genre">
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+                <ScalarProperty Name="Genre1" ColumnName="Genre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishers">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.Publisher">
+              <MappingFragment StoreEntitySet="Publisher">
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoGames">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.VideoGame">
+              <MappingFragment StoreEntitySet="VideoGames">
+                <ScalarProperty Name="VidGameID" ColumnName="VidGameID" />
+                <ScalarProperty Name="Upc" ColumnName="Upc" />
+                <ScalarProperty Name="VideoGameTitle" ColumnName="VideoGameTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ESRBRatingID" ColumnName="ESRBRatingID" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="InStock" ColumnName="InStock" />
+                <ScalarProperty Name="UnitsSold" ColumnName="UnitsSold" />
+                <ScalarProperty Name="OnBackOrder" ColumnName="OnBackOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empolyees">
+            <EntityTypeMapping TypeName="StoreFrontMainModel.Empolyee">
+              <MappingFragment StoreEntitySet="Empolyees">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmpFirstName" ColumnName="EmpFirstName" />
+                <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="StillEmployed" ColumnName="StillEmployed" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="StoreFrontMainModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

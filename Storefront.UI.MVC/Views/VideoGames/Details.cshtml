@@ -1,0 +1,122 @@
+﻿@model Storefront.DATA.EF.VideoGame
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VideoGame</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Upc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Upc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoGameTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoGameTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublishDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitsSold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitsSold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnBackOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnBackOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESRBRating.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESRBRating.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre.Genre1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre.Genre1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publisher.PublisherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher.PublisherName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VidGameID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

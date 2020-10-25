@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Storefront.DATA.EF.VideoGame>
+
+@{
+    ViewBag.Title = "Video Games (Shopping Cart)";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Upc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoGameTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitsSold)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnBackOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESRBRating.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre.Genre1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publisher.PublisherName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Upc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoGameTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+            @*<img src="~/Content/imgstore/books/t_@item.BookImage" alt="Book cover" title="@item.BookTitle" />*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitsSold)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnBackOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESRBRating.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre.Genre1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VidGameID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VidGameID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VidGameID })
+        </td>
+    </tr>
+}
+
+</table>
